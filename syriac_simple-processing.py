@@ -93,7 +93,7 @@ def export_to_file(file, dct):
     """
     with open(file, "w", encoding="utf8") as current_file:
         for (key, value) in dct.items():
-            current_file.write("{},{}\n".format(key, value))
+            current_file.write(f"{key},{value}\n")
 
 class Text:
     """
@@ -150,7 +150,7 @@ class Text:
         if text == None:
             text = self.text
         with open(file, "w", encoding="utf8") as current_file:
-            current_file.write("{}" % text)
+            current_file.write(f"{text}")
 
 class CharList:
     """
@@ -186,7 +186,7 @@ class WordList:
         """
         valid_order = ["alefba", "freq"]
         if order not in valid_order:
-            raise ValueError("argument »order« must be one of {}.".format(valid_order))
+            raise ValueError(f"argument »order« must be one of {valid_order}.")
         if order == "alefba":
             self.word_list = dict(sorted(self.word_list.items(), key=lambda item: item[0]))
         else:
